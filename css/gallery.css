@@ -1,0 +1,8 @@
+.gallery{
+    display: flex;
+    list-style-type: none;
+}
+.gallery img {
+    width: 200px;
+    padding: 10px;
+}
