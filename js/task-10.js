@@ -30,7 +30,7 @@ function createBoxes(amount) {
       let boxSize = `${30 + i * 10}px`
 
       let box = document.createElement('div');
-      box.setAttribute('class', 'box');
+      box.classList.add('box')
       box.style.width = boxSize;
       box.style.height = boxSize;
       box.style.backgroundColor = getRandomHexColor();
