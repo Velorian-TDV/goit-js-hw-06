@@ -3,11 +3,16 @@ const create = document.querySelector('[data-create]');
 const destroy = document.querySelector('[data-destroy]');
 const controls = document.getElementById('controls');
 const controlsInput = controls.querySelector('input');
+const arrayForBoxes = [];
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
     .padStart(6, 0)}`;
+}
+
+function pushBoxes() {
+  boxes.append(...arrayForBoxes)
 }
 
 function createBoxes(amount) {
@@ -30,9 +35,11 @@ function createBoxes(amount) {
       box.style.height = boxSize;
       box.style.backgroundColor = getRandomHexColor();
 
-      boxes.append(box);
+      arrayForBoxes.push(box);
 
     }
+
+    pushBoxes()
 
   }
 
@@ -42,7 +49,13 @@ function destroyBoxes() {
 
   const boxes = document.querySelectorAll('.box');
 
-  boxes.forEach(box => box.remove());
+  boxes.forEach(box => {
+
+    box.remove()
+
+  });
+
+  arrayForBoxes.splice(0, arrayForBoxes.length)
 
 }
 

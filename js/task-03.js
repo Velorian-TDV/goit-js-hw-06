@@ -15,21 +15,12 @@ const images = [
 
 const gallery = document.querySelector('.gallery');
 
-const createGallery = (elems) => {
+function createElement(url, alt) {
+  return `<li><img src="${url}" alt="${alt}"></li>`;
+} 
 
-  elems.forEach(element => {
-    
-    const galleryItem = document.createElement('li');
-    const galleryItemImage = document.createElement('img');
-    
-    galleryItemImage.setAttribute('src', element.url);
-    galleryItemImage.setAttribute('alt', element.alt);
-    galleryItem.append(galleryItemImage);
+const createGallery = images.map(elem => {
+  return createElement(elem.url, elem.alt);
+})
 
-    gallery.insertAdjacentElement('beforeend', galleryItem);
-  
-  });
-
-}
-
-createGallery(images)
+gallery.insertAdjacentHTML('beforeend', createGallery.join(''))

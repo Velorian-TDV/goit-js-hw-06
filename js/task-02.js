@@ -7,13 +7,16 @@ const ingredients = [
   'Condiments',
 ];
 
-const ingredientsList = document.getElementById('ingredients'); // get list
+const ingredientsList = document.getElementById('ingredients'); 
+const elementsArray = [];
 
-ingredients.map(elem => { // iterate each element 
+ingredients.map(elem => { 
   
-  let listItem = document.createElement('li'); // create lement
-  listItem.setAttribute('class', 'item') // add class
-  listItem.innerHTML = elem; // add data
-  ingredientsList.append(listItem) // add element to list
+  let listItem = document.createElement('li');
+  listItem.classList.add('item')
+  listItem.textContent = elem; 
+  elementsArray.push(listItem)
 
 })
+
+ingredientsList.append(...elementsArray);
